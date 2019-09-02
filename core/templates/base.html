@@ -13,7 +13,7 @@
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a href="" class="navbar-brand">LolJa Onlaini</a>
+          <a href="{% url 'index' %}" class="navbar-brand">LolJa Onlaini</a>
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -26,11 +26,12 @@
               <a href="{% url 'index' %}">Início</a>
             </li>
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="{% url 'product_list' %}" id="download">Categorias <span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="{% url 'catalog:product_list' %}" id="download">Categorias <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="download">
-                <li><a href="{% url 'product_list' %}">Notebooks</a></li>
-				<li><a href="{% url 'product_list' %}">Acessórios</a></li>
-				<li><a href="{% url 'product_list' %}">Celulares</a></li>
+              {% for category in categories %}
+                <li><a href="{{ category.get_absolute_url }}">{{ category }}</a></li>
+              {% endfor %}
+               
               </ul>
             </li>
 			<li>
@@ -50,7 +51,7 @@
 			    <ul class="list-unstyled">
 			      <li class="pull-right"><a href="#top">Voltar ao Topo</a></li>
 			      <li><a href="{% url 'index' %}">Início</a></li>
-			      <li><a href="{% url 'product_list' %}">Produtos</a></li>
+			      <li><a href="{% url 'catalog:product_list' %}">Produtos</a></li>
 			      <li><a href="{% url 'contact' %}">Contato</a></li>
 			      <li><a href="">Termos e Privacidade</a></li>
 			    </ul>
