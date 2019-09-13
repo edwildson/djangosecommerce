@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    #libs
+    'widget_tweaks',
     'core',
     'catalog',
 ]
@@ -70,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
                 #Minhas apps
                 'catalog.context_processors.categories'
             ],
@@ -138,7 +140,14 @@ ALLOWED_HOSTS = ['*']
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
+# Email
+EMAIL_HOST = ''
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+DEFAULT_FROM_EMAIL = 'admin@djangoecommerce.com'
+
+
 try:
-    from.local_settings import *
+    from .local_settings import *
 except ImportError:
     pass
