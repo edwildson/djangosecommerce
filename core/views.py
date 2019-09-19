@@ -5,17 +5,34 @@ from django.http import HttpResponse
 from .forms import ContactForm
 from django.core.mail import send_mail
 from django.conf import settings
+from django.views.generic import View, TemplateView
 
 
+class IndexView(TemplateView):
+    template_name= 'index.html'
+    def get_context_data(self, *args, **kwargs):
+        texts = ['Lorem ipsum', 'dolor sit amet', 'consectetur']
+        context = {
+            'title': 'LolJa Onlaini',
+            'texts': texts,
+        }
+        return context
+    # def get(self, request):
+    #     texts = ['Lorem ipsum', 'dolor sit amet', 'consectetur']
+    #     context = {
+    #         'title': 'LolJa Onlaini',
+    #         'texts': texts,
+    #     }
+    #     return render(request, 'index.html', context)
+# def index(request):
+#     texts = ['Lorem ipsum', 'dolor sit amet', 'consectetur']
+#     context = {
+#         'title': 'LolJa Onlaini',
+#         'texts': texts,
+#     }
+#     return render(request, 'index.html', context)
 
-def index(request):
-    texts = ['Lorem ipsum', 'dolor sit amet', 'consectetur']
-    context = {
-        'title': 'LolJa Onlaini',
-        'texts': texts,
-    }
-    return render(request, 'index.html', context)
-
+index = IndexView.as_view()
 
 def contact(request):
     success = False
