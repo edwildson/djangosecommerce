@@ -30,4 +30,5 @@ urlpatterns = [
     url(r'^conta/', include('accounts.urls', namespace='accounts')),
     url(r'^catalogo/', include('catalog.urls', namespace='catalog')),
     url(r'^admin/', admin.site.urls),
+    url(r'^compras/', include('checkout.urls', namespace='checkout')),
 ]
