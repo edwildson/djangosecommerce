@@ -19,7 +19,7 @@ class CartItemManager(models.Manager):
 
 
 class CartItem(models.Model):
-    cart_key = models.CharField('Chave do Carrinho', max_length=40, db_index=True)
+    cart_key = models.CharField('Chave do Carrinho', max_length=40, db_index=True, null=True)
     product = models.ForeignKey('catalog.Product', verbose_name='Produto')
     quantity = models.PositiveIntegerField('Quantidade', default =1)
     price = models.DecimalField('Preço', decimal_places=2, max_digits=8)
