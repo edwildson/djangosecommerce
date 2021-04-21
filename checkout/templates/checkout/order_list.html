@@ -23,6 +23,9 @@ Meus Pedidos
             <th>
                 Data
             </th>
+             <th>
+                Avaliar
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -31,17 +34,22 @@ Meus Pedidos
             <td>
                 <a href="{% url 'checkout:order_detail' order.pk %}">#{{ order.pk }}</a>
             </td>
-            <td>
+
                 {% for product in order.products %}
-                {{ product.name }}{% if not forloop.last %}<br />{% endif %}
+                <td>
+                {{ product.name }}{% if not forloop.last %}<br />{% endif %}</td>
+                <td>
+                    <p><a href="{%  url 'checkout:rating_product' product.slug  %}" class="" role="button">Avaliar</a> 
+                </td>
                 {% endfor %}
-            </td>
+
             <td>
                 {{ order.get_status_display }}
             </td>
             <td>
                 {{ order.created|date:"d/m/Y" }}
             </td>
+           
         </tr>
         {% endfor %}
     </tbody>
