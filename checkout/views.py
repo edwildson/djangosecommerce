@@ -85,8 +85,17 @@ class OrderDetailView(LoginRequiredMixin, DetailView):
     def get_queryset(self):
         return Order.objects.filter(user=self.request.user)
     
-
+class ProductRatingView(LoginRequiredMixin, TemplateView):
     
+    template_name= 'checkout/avaliar_produto.html'
+    
+    def get(self, request, *args, **kwargs):
+        product = Product.objects.get(slug=self.kwargs['slug'])
+
+        response = super(ProductRatingView, self).get(request, *args, **kwargs)
+        response.context_data['product'] = product
+        return response
+        
 
 
 create_cartitem = CreateCartItemView.as_view()
@@ -94,3 +103,4 @@ cart_item = CartItemView.as_view()
 checkout = CheckoutView.as_view()
 order_list = OrderListView.as_view()
 order_detail = OrderDetailView.as_view()
+rating_product = ProductRatingView.as_view()

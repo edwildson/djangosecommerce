@@ -1,4 +1,16 @@
-<div class="col-sm-6 col-md-4">
+{% extends 'base.html' %}
+{% load pagination %}
+
+{% block title %}
+    Listagem de Produtos | {{ block.super }}
+{% endblock title %}
+
+{% block container %}
+    <div class="page-header">
+			<h1>Produtos</h1>
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-md-4">
 				<div class="thumbnail">
 					<a href="{{ product.get_absolute_url }}">
 						<img src="http://placehold.it/350x250" alt="" />
@@ -19,3 +31,9 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		{% pagination request paginator page_obj %}
+
+{% endblock %}
+
+

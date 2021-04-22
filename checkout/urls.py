@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^finalizando/$', views.checkout, name='checkout'),
     url(r'^meus-pedidos/$', views.order_list, name='order_list'),
     url(r'^meus-pedidos/(?P<pk>\d+)/$', views.order_detail, name='order_detail'),
+    url(r'^avaliar/(?P<slug>[\w_-]+)/$', views.rating_product, name='rating_product'),
 ]
