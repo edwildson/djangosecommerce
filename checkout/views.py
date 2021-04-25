@@ -2,11 +2,15 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import (
     RedirectView, TemplateView, ListView, DetailView)
 from .models import CartItem, Order
-from catalog.models import Product
+from accounts.models import User
+from catalog.models import Product, Rating
 from django.contrib import messages
 from django.forms import modelformset_factory
 from django.core.urlresolvers import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
+from datetime import datetime
+from django import forms
+
 
 
 class CreateCartItemView(RedirectView):
@@ -94,16 +98,56 @@ class OrderDetailView(LoginRequiredMixin, DetailView):
         return Order.objects.filter(user=self.request.user)
 
 
-class ProductRatingView(LoginRequiredMixin, TemplateView):
+class ProductRatingView(LoginRequiredMixin, TemplateView, forms.ModelForm):
 
     template_name = 'checkout/avaliar_produto.html'
-
+   
     def get(self, request, *args, **kwargs):
         product = Product.objects.get(slug=self.kwargs['slug'])
-
+        cf = None
+        if request.method == 'POST':
+            cf = CommentForm(request.POST or None)
+            if cf.is_valid():
+                content = request.POST.get('content')
+                comment = Rating.objects.create( user = request.user, product = product ,score = self.kwargs['score'], comment = content)
+                comment.save()
+                return redirect(post.get_absolute_url())
+            else:
+                cf = CommentForm()
+                
         response = super(ProductRatingView, self).get(request, *args, **kwargs)
         response.context_data['product'] = product
+        response.context_data['comment_form'] = cf
         return response
+        
+
+class CommentForm(forms.ModelForm):
+    content = forms.CharField(label ="", widget = forms.Textarea(
+    attrs ={
+        'class':'form-control',
+        'placeholder':'Comment here !',
+        'rows':4,
+        'cols':50
+    }))
+    class Meta:
+        model = Rating
+        fields =['content']    
+
+def rating(request):
+
+    if request.method == 'POST':
+        rating = request.POST.get('content')
+
+    date = datetime.now()
+    user = None
+    
+    
+    def get_queryset(self):
+        user = User.objects.filter(user=self.request.user)
+    
+
+
+
 
 
 class PagSeguroView(LoginRequiredMixin, RedirectView):

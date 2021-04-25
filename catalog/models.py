@@ -44,4 +44,15 @@ class Product(models.Model):
         return self.name
     def get_absolute_url(self):
         return reverse('catalog:product', kwargs={'slug': self.slug})
-    
+
+class Rating(models.Model):
+    user = models.ForeignKey('accounts.User', verbose_name='Usuário', related_name='user')
+    date = models.DateTimeField('Criado em',  auto_now_add=True)
+    comment = models.TextField('Comentário', blank = True)
+    score = models.DecimalField(default=0,decimal_places=1,max_digits=2,
+        validators=[
+            MaxValueValidator(5),
+            MinValueValidator(0),
+        ]
+    )
+    product = models.ForeignKey('catalog.Product', verbose_name='Produto', related_name='product')
