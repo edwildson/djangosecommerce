@@ -12,7 +12,6 @@ from datetime import datetime
 from django import forms
 
 
-
 class CreateCartItemView(RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         product = get_object_or_404(Product, slug=self.kwargs['slug'])
@@ -98,40 +97,66 @@ class OrderDetailView(LoginRequiredMixin, DetailView):
         return Order.objects.filter(user=self.request.user)
 
 
-class ProductRatingView(LoginRequiredMixin, TemplateView, forms.ModelForm):
-
-    template_name = 'checkout/avaliar_produto.html'
-   
-    def get(self, request, *args, **kwargs):
-        product = Product.objects.get(slug=self.kwargs['slug'])
-        cf = None
-        if request.method == 'POST':
-            cf = CommentForm(request.POST or None)
-            if cf.is_valid():
-                content = request.POST.get('content')
-                comment = Rating.objects.create( user = request.user, product = product ,score = self.kwargs['score'], comment = content)
-                comment.save()
-                return redirect(post.get_absolute_url())
-            else:
-                cf = CommentForm()
-                
-        response = super(ProductRatingView, self).get(request, *args, **kwargs)
-        response.context_data['product'] = product
-        response.context_data['comment_form'] = cf
-        return response
-        
-
 class CommentForm(forms.ModelForm):
-    content = forms.CharField(label ="", widget = forms.Textarea(
-    attrs ={
-        'class':'form-control',
-        'placeholder':'Comment here !',
-        'rows':4,
-        'cols':50
-    }))
+    content = forms.CharField(label="", widget=forms.Textarea(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'Comment here !',
+            'rows': 4,
+            'cols': 50
+        }))
+
     class Meta:
         model = Rating
-        fields =['content']    
+        fields = ['content']
+
+
+def ProductRatingView(request, *args, **kwargs):
+    product = get_object_or_404(Product, slug=kwargs['slug'])
+    template_name = 'checkout/avaliar_produto.html'
+    ratings = Rating.objects.filter(product=product)
+    new_rating = None
+    cf = None
+    done = False
+    if (Rating.objects.filter(product=product).filter(user=request.user)):
+        done = True
+    else:
+        new_rating = None
+        if request.method == 'POST':
+            cf = CommentForm(data=request.POST)
+            if cf.is_valid():
+                content = request.POST.get('content')
+                new_rating = cf.save(commit=False)
+                new_rating.product = product
+                new_rating.user = request.user
+                new_rating.score = 5
+                new_rating.comment = content
+                new_rating.save()
+
+        else:
+            cf = CommentForm()
+    return render(request,
+                  'checkout/avaliar_produto.html',
+                  {'product': product,
+                   'comments': ratings,
+                   'new_rating': new_rating,
+                   'comment_form': cf,
+                   'done': done})
+
+    """content = request.POST.get('content')
+            comment = Rating.objects.create(
+                user=request.user, product=product, score=self.kwargs['score'], comment=content)
+            comment.save()
+            return redirect(post.get_absolute_url())
+        else:
+            cf = CommentForm()
+
+    response = super(ProductRatingView, self).get(request, *args, **kwargs)
+    response.context_data['product'] = product
+    response.context_data['comment_form'] = cf
+    return response
+"""
+
 
 def rating(request):
 
@@ -140,14 +165,9 @@ def rating(request):
 
     date = datetime.now()
     user = None
-    
-    
+
     def get_queryset(self):
         user = User.objects.filter(user=self.request.user)
-    
-
-
-
 
 
 class PagSeguroView(LoginRequiredMixin, RedirectView):
@@ -171,5 +191,5 @@ cart_item = CartItemView.as_view()
 checkout = CheckoutView.as_view()
 order_list = OrderListView.as_view()
 order_detail = OrderDetailView.as_view()
-rating_product = ProductRatingView.as_view()
+rating_product = ProductRatingView
 pagseguro_view = PagSeguroView.as_view()
