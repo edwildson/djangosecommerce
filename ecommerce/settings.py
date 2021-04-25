@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'catalog',
     'accounts',
     'checkout',
-   
+
 ]
 
 MIDDLEWARE = [
@@ -171,6 +171,10 @@ MESSAGE_TAGS = {
     messages_constants.ERROR: 'danger',
 }
 
+
+PAGSEGURO_TOKEN = ''
+PAGSEGURO_EMAIL = 'edwildson@hotmail.com'
+PAGSEGURO_SANDBOX = True
 
 try:
     from .local_settings import *
