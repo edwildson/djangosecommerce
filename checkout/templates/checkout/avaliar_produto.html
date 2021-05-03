@@ -1,0 +1,69 @@
+{% extends 'base.html' %} {% block title %} {{ product }} | {{ block.super }}
+{%endblock title %} {% block container %} {% load crispy_forms_tags %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'assets/bootstrap_ratings.css' %}">
+<link rel="stylesheet" href="../../assets/bootstrap_ratings.css" media="screen" />
+<div class="page-header">
+  <h2>Avaliar Produto</h2>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <a href="#" class="thumbnail">
+      <img src="http://placehold.it/350x250" alt="" />
+    </a>
+  </div>
+  <div class="col-sm-8">
+    <h2>{{ product }}</h2>
+    <div class="start-products">
+      <input type="hidden" id="score" name="score" value="{{ product.score}}" />
+      <span class="fa fa-star" id="star1"></span>
+      <span class="fa fa-star" id="star2"></span>
+      <span class="fa fa-star" id="star3"></span>
+      <span class="fa fa-star" id="star4"></span>
+      <span class="fa fa-star" id="star5"></span>
+    </div>
+    <div>
+      {% if done %}
+      <h2>Você já avaliou este produto.</h2>
+      {% else %} {% if new_rating %}
+      <h2>Seu comentário foi adicionado.</h2>
+      {% else %}
+      <h4>Adicione um comentário</h4>
+      <form action="." method="post">
+        {{ comment_form.as_p }} {% csrf_token %}
+        <p>
+          <input type="submit" class="btn btn-primary" value="Add comment" />
+        </p>
+      </form>
+      {% endif %} {% endif %}
+    </div>
+  </div>
+</div>
+<br/>
+
+<div class="row">
+<div>
+	<h2> Avaliações </h2>
+ 	{% for comment in comments %}
+  		<div class="card text-center">
+    		<div class="card-header"><p class="card-text">{{comment.score }}</p>
+			</div>
+    		<div class="card-body">
+     			 <h5 class="card-title">{{ comment.user }}</h5>
+      			<p class="card-text">{{ comment.comment|linebreaks }}</p>
+      			
+			</div>
+			<div class="card-footer text-muted">
+				{{ comment.date }}
+			</div>
+		</div>
+      
+	{% empty %}
+      <p>There are no comments yet.</p>
+{% endfor %}
+</div>
+</div>
+{% endblock %}
+  </div>
+</div>

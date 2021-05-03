@@ -1,50 +1,39 @@
-{% extends "accounts/index.html" %}
-
-{% load pagination %}
-
-{% block title %}
-Meus Pedidos
-{% endblock %}
-
-{% block accounts_container %}
+{% extends "accounts/index.html" %} {% load pagination %} {% block title %} Meus
+Pedidos {% endblock %} {% block accounts_container %}
 <h2>Meus Pedidos</h2>
 <table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>
-                ID
-            </th>
-            <th>
-                Produtos
-            </th>
-            <th>
-                Situação
-            </th>
-            <th>
-                Data
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for order in object_list %}
-        <tr>
-            <td>
-                <a href="{% url 'checkout:order_detail' order.pk %}">#{{ order.pk }}</a>
-            </td>
-            <td>
-                {% for product in order.products %}
-                {{ product.name }}{% if not forloop.last %}<br />{% endif %}
-                {% endfor %}
-            </td>
-            <td>
-                {{ order.get_status_display }}
-            </td>
-            <td>
-                {{ order.created|date:"d/m/Y" }}
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Produtos</th>
+      <th>Situação</th>
+      <th>Data</th>
+      <th>Avaliar</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for order in object_list %} {% for product in order.products %}
+    <tr>
+      <td>
+        <a href="{% url 'checkout:order_detail' order.pk %}">#{{ order.pk }}</a>
+      </td>
+
+      <td>{{ product.name }}{% if not forloop.last %}<br />{% endif %}</td>
+      <td>
+        <p>
+          <a
+            href="{%  url 'checkout:rating_product' product.slug  %}"
+            class=""
+            role="button"
+            >Avaliar</a
+          >
+        </p>
+      </td>
+
+      <td>{{ order.get_status_display }}</td>
+      <td>{{ order.created|date:"d/m/Y" }}</td>
+    </tr>
+    {% endfor %} {% endfor %}
+  </tbody>
 </table>
-{% pagination request paginator page_obj %}
-{% endblock %}
+{% pagination request paginator page_obj %} {% endblock %}
