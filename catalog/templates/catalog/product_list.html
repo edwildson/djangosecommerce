@@ -7,14 +7,14 @@
 
 {% block container %}
     <div class="page-header">
-			<h1>Produtos</h1>
-		</div>
-		<div class="row">
-			{% for product in product_list %}
-			{% include "catalog/_product.html" %}
-			{% endfor %}
+        <h1>Produtos</h1>
+    </div>
+    <div class="row">
+        {% for product in product_list %}
+            {% include "catalog/_product.html" with product_index=forloop.counter %}
+        {% endfor %}
 
-		</div>
-		{% pagination request paginator page_obj %}
+    </div>
+    {% pagination request paginator page_obj %}
 
 {% endblock %}

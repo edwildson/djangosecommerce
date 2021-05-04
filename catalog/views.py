@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django import template
+
+register = template.Library()
 
 # Create your views here.
 from .models import Product, Category
@@ -12,6 +15,7 @@ class ProductListView(generic.ListView):
 
 
 product_list = ProductListView.as_view()
+
 
 # def product_list(request):
 #     context = {
@@ -34,6 +38,7 @@ class CategoryListView(generic.ListView):
             Category, slug=self.kwargs['slug'])
         return context
 
+
 # def category(request, slug):
 #     category = Category.objects.get(slug=slug)
 #     context = {
@@ -48,9 +53,9 @@ category = CategoryListView.as_view()
 
 def product(request, slug):
     product = Product.objects.get(slug=slug)
-    
+
     context = {
         'product': product,
-   
+
     }
     return render(request, 'catalog/product.html', context)
