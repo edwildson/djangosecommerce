@@ -6,28 +6,34 @@
 
 {% block container %}
     <div class="page-header">
-		  <h1>{{ product }}</h1>
-		</div>
-		<div class="row">
-		  <div class="col-sm-4">
-			  <a href="#" class="thumbnail">
-				  <img src="http://placehold.it/350x250" alt="" />
-			  </a>
-			  <div class='start-products' > 
-			  <input type="hidden" id="score" name="score" value="{{ product.score}}">
-				<span class="fa fa-star" id="star1"></span>
-				<span class="fa fa-star" id="star2"></span>
-				<span class="fa fa-star" id="star3"></span>
-				<span class="fa fa-star" id="star4"></span>
-				<span class="fa fa-star" id="star5"></span>
-			</div>
-		  </div>
-		  <div class="col-sm-8">
-		  	<p class="text-right">
-			  <a href="{% url 'checkout:create_cartitem' product.slug %}" class="btn btn-success">Adicionar ao carrinho</a>
-			</p>
-			  {{ product.description|linebreaks }}
-		  </div>
-		  
-		</div>
+        <h1>{{ product }}</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <a href="#" class="thumbnail">
+                <img src="http://placehold.it/350x250" alt=""/>
+            </a>
+            <div class='start-products'>
+                <input type="hidden" id="score" name="score" value="{{ product.score }}">
+                {#				<span class="fa fa-star" id="star1"></span>#}
+                {#				<span class="fa fa-star" id="star2"></span>#}
+                {#				<span class="fa fa-star" id="star3"></span>#}
+                {#				<span class="fa fa-star" id="star4"></span>#}
+                {#				<span class="fa fa-star" id="star5"></span>#}
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <p class="text-right">
+                <a href="{% url 'checkout:create_cartitem' product.slug %}" class="btn btn-success">Adicionar ao
+                    carrinho</a>
+            </p>
+            {{ product.description|linebreaks }}
+        </div>
+
+    </div>
+
+    <script>
+        createStars(1, "{{ product.score }}")
+    </script>
+
 {% endblock %}
