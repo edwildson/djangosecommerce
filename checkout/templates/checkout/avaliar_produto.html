@@ -71,12 +71,15 @@
 
     <script>
 
-        if ("{{ done }}" === "True")
+        if ("{{ done }}" === "True") {
+            let rate_div_tag = document.getElementsByClassName('rate-product')[0];
+            rate_div_tag.classList.remove('rate-product');
+
             createStars(1, "{{ score_by_user }}");
+        }
 
     </script>
 
 {% endblock %}
 </div>
 </div>
-

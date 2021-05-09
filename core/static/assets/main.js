@@ -105,7 +105,7 @@ $(document).ready(function () {
     // }))
 
 
-    $('.rate-product span').on('click', handleStartClick);
+    $('.rate-product span').on('click', handleStarClick);
 });
 
 function colourStarts(last_star_index) {
@@ -157,7 +157,7 @@ function updateScore(last_star_index) {
     current_score_tag.val(current_score);
 }
 
-function handleStartClick() {
+function handleStarClick() {
     let clicked_start_index = $(this).index();
     colourStarts(clicked_start_index);
     updateScore(clicked_start_index);
