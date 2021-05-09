@@ -1,9 +1,10 @@
 {% extends 'base.html' %} {% block title %} {{ product }} | {{ block.super }}
 {% endblock title %} {% block container %} {% load crispy_forms_tags %}
 
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/bootstrap_ratings.css' %}">
-    <link rel="stylesheet" href="../../assets/bootstrap_ratings.css" media="screen"/>
+    {#    {% load static %}#}
+    {#    <link rel="stylesheet" type="text/css" href="{% static 'assets/bootstrap_ratings.css' %}">#}
+    {#    <link rel="stylesheet" href="../../assets/bootstrap_ratings.css" media="screen"/>#}
+
     <div class="page-header">
         <h2>Avaliar Produto</h2>
     </div>
@@ -15,13 +16,15 @@
         </div>
         <div class="col-sm-8">
             <h2>{{ product }}</h2>
-            <div class="start-products">
+            <div class="start-products rate-product">
+                {% if done != True %}
+                    <span class="fa fa-star-o" id="star1"></span>
+                    <span class="fa fa-star-o" id="star2"></span>
+                    <span class="fa fa-star-o" id="star3"></span>
+                    <span class="fa fa-star-o" id="star4"></span>
+                    <span class="fa fa-star-o" id="star5"></span>
+                {% endif %}
                 <input type="hidden" id="score" name="score" value="{{ product.score }}"/>
-                {#                <span class="fa fa-star" id="star1"></span>#}
-                {#                <span class="fa fa-star" id="star2"></span>#}
-                {#                <span class="fa fa-star" id="star3"></span>#}
-                {#                <span class="fa fa-star" id="star4"></span>#}
-                {#                <span class="fa fa-star" id="star5"></span>#}
             </div>
             <div>
                 {% if done %}
@@ -31,6 +34,7 @@
                 {% else %}
                     <h4>Adicione um comentário</h4>
                     <form action="." method="post">
+                        <input type="hidden" id="current-score" name="current-score" value="0"/>
                         {{ comment_form.as_p }} {% csrf_token %}
                         <p>
                             <input type="submit" class="btn btn-primary" value="Add comment"/>
@@ -67,7 +71,8 @@
 
     <script>
 
-        createStars(1, "{{ product.score }}");
+        if ("{{ done }}" === "True")
+            createStars(1, "{{ score_by_user }}");
 
     </script>
 
