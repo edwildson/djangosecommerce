@@ -17,7 +17,7 @@
         <div class="col-sm-8">
             <h2>{{ product }}</h2>
             <div class="start-products rate-product">
-                {% if done != True %}
+                {% if done != True and new_rating == None %}
                     <span class="fa fa-star-o" id="star1"></span>
                     <span class="fa fa-star-o" id="star2"></span>
                     <span class="fa fa-star-o" id="star3"></span>
@@ -70,12 +70,17 @@
     </div>
 
     <script>
-
-        if ("{{ done }}" === "True") {
+    	
+    	if ("{{ done }}" === "True") {
             let rate_div_tag = document.getElementsByClassName('rate-product')[0];
             rate_div_tag.classList.remove('rate-product');
 
             createStars(1, "{{ score_by_user }}");
+        }else if ("{{ new_rating }}" != "None") {
+            let rate_div_tag = document.getElementsByClassName('rate-product')[0];
+            rate_div_tag.classList.remove('rate-product');
+
+            createStars(1, "{{ new_rating.score }}");
         }
 
     </script>
