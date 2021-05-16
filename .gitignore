@@ -66,4 +66,9 @@ local_settings.py
 .venv
 django_ecommerce
 venv
+<<<<<<< HEAD
 settings.json
+=======
+.vscode
+.gitignore
+>>>>>>> 92890bb19155b1ee75e21642e16f6b108fda3cf9
