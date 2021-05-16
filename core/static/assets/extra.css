@@ -8,3 +8,47 @@
     margin-top: 1em;
     margin-bottom: 2em;
 }
+#bodyHome{
+    margin-top: 0 !important;
+   
+}
+#imgInit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: darkblue;
+    width: 100%;
+}
+#botao{
+    position:absolute;
+    z-index:1;
+    font-size: 20pt;
+    align-items: center;
+    top:60%;
+    left:25%;
+    width:200px;               /* largura para o botão */
+    height:70px;              /* altura para o botão */
+    padding:20;
+    margin:-15px 0 0 -30px;   /* margem à esquerda e ao topo metade da medida do botão */
+    border:0 none;
+}
+#sobre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px 10px 20px 20px;
+    background-color: darkorange;
+    color: #FFFFFF;
+    height: 200px;
+}
+#sobre h1{
+    color: #FFFFFF;
+}
+#sobre p{
+    margin-bottom:2.5em;
+    max-width: 1000px;
+}

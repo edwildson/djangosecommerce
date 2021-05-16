@@ -1,8 +1,22 @@
 {% extends 'base.html' %}
 {% block container %}
-	<div class="jumbotron page-header">
+{% load static %}
+<div id=bodyHome>
+<div id="imgInit">
+	<img  src="{% static 'images/Cursos-Online.jpg' %}" alt="some text" height="400">	
+	<a id="botao" href="{% url 'catalog:product_list' %}" class="btn btn-primary d-flex">Saiba mais</a>
+</div>
+<div id="sobre">
+	<h1>Sobre</h1>
+	<p>Somos um escola de cursos voltados para a área profissional, já estamos no mercado desde a semana passada 
+		somos reconhecidos como a melhor escola de cursos online da América latina. Venha fazer parte desse time!
+	</p>
+</div>
+
+<div class="jumbotron page-header">
 		  <h1>{{ title|capfirst }}</h1>
 		  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 		  <p><a class="btn btn-primary">Saiba mais</a></p>
 	</div>
+</div>
 {% endblock container %}
