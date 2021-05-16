@@ -64,7 +64,6 @@ class CartItemView(TemplateView):
 
 
 class CheckoutView(LoginRequiredMixin, TemplateView):
-
     template_name = 'checkout/checkout.html'
 
     def get(self, request, *args, **kwargs):
@@ -118,30 +117,51 @@ def ProductRatingView(request, *args, **kwargs):
     new_rating = None
     cf = None
     done = False
-    if (Rating.objects.filter(product=product).filter(user=request.user)):
+    score_by_user = Rating.objects.filter(product=product).filter(user=request.user)
+
+    if score_by_user:
         done = True
     else:
         new_rating = None
         if request.method == 'POST':
             cf = CommentForm(data=request.POST)
             if cf.is_valid():
+                stored_ratings = Rating.objects.filter(product=product)
+                score_sum = 0.0
+                ratings_amount = len(stored_ratings)
+                current_rating = float(request.POST.get('current-score'))
+
+                for stored_rating in stored_ratings:
+                    score_sum += float(stored_rating.score)
+
+                score_sum += current_rating
+                ratings_amount += 1
+
                 content = request.POST.get('content')
                 new_rating = cf.save(commit=False)
                 new_rating.product = product
                 new_rating.user = request.user
-                new_rating.score = 5
+                new_rating.score = current_rating
                 new_rating.comment = content
                 new_rating.save()
 
+                # update current product score
+                product.score = score_sum / ratings_amount
+                product.save()
         else:
             cf = CommentForm()
-    return render(request,
-                  'checkout/avaliar_produto.html',
-                  {'product': product,
-                   'comments': ratings,
-                   'new_rating': new_rating,
-                   'comment_form': cf,
-                   'done': done})
+    return render(
+        request,
+        template_name,
+        {
+            'product': product,
+            'comments': ratings,
+            'new_rating': new_rating,
+            'comment_form': cf,
+            'done': done,
+            'score_by_user': score_by_user[0].score if score_by_user else None
+        }
+    )
 
     """content = request.POST.get('content')
             comment = Rating.objects.create(
@@ -159,7 +179,6 @@ def ProductRatingView(request, *args, **kwargs):
 
 
 def rating(request):
-
     if request.method == 'POST':
         rating = request.POST.get('content')
 
