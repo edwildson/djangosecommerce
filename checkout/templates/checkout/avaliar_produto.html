@@ -1,9 +1,9 @@
 {% extends 'base.html' %} {% block title %} {{ product }} | {{ block.super }}
 {% endblock title %} {% block container %} {% load crispy_forms_tags %}
 
-    {#    {% load static %}#}
-    {#    <link rel="stylesheet" type="text/css" href="{% static 'assets/bootstrap_ratings.css' %}">#}
-    {#    <link rel="stylesheet" href="../../assets/bootstrap_ratings.css" media="screen"/>#}
+     {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/bootstrap_ratings.css' %}">
+    <link rel="stylesheet" href="../../assets/bootstrap_ratings.css" media="screen"/>
 
     <div class="page-header">
         <h2>Avaliar Produto</h2>

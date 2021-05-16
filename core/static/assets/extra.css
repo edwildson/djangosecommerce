@@ -1,20 +1,52 @@
 .margin-top {
-    margin-top: 2em;
+  margin-top: 2em;
 }
 
 .checked {
-    color: orange;
+  color: orange;
 }
 
 .start-products {
-    margin-top: 1em;
-    margin-bottom: 2em;
+  margin-top: 1em;
+  margin-bottom: 2em;
 }
 
-.fa-star, .fa-star-half-o {
-    color: #FFCC03 !important;
+.fa-star,
+.fa-star-half-o {
+  color: #ffcc03 !important;
 }
 
 .fa-star-o {
-    color: #827979 !important;
+  color: #827979 !important;
+}
+
+#botao {
+  position: absolute;
+  z-index: 1;
+  font-size: 20pt;
+  align-items: center;
+  top: 60%;
+  left: 25%;
+  width: 200px; /* largura para o botão */
+  height: 70px; /* altura para o botão */
+  padding: 20;
+  margin: -15px 0 0 -30px; /* margem à esquerda e ao topo metade da medida do botão */
+  border: 0 none;
+}
+#sobre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px 10px 20px 20px;
+  background-color: darkorange;
+  color: #ffffff;
+  height: 200px;
+}
+#sobre h1 {
+  color: #ffffff;
+}
+#sobre p {
+  margin-bottom: 2.5em;
+  max-width: 1000px;
 }
