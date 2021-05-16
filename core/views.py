@@ -21,7 +21,7 @@ class IndexView(TemplateView):
         context = {
             'title': 'LolJa Onlaini',
             'texts': texts,
-
+ 
         }
         return context
     # def get(self, request):
