@@ -65,3 +65,6 @@ db.sqlite3
 local_settings.py
 .venv
 django_ecommerce
+venv
+.vscode
+.gitignore
