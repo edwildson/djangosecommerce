@@ -10,6 +10,7 @@
     margin-top: 1em;
     margin-bottom: 2em;
 }
+<<<<<<< HEAD
 #bodyHome{
     margin-top: 0 !important;
    
@@ -53,4 +54,13 @@
 #sobre p{
     margin-bottom:2.5em;
     max-width: 1000px;
+=======
+
+.fa-star, .fa-star-half-o {
+    color: #FFCC03 !important;
+}
+
+.fa-star-o {
+    color: #827979 !important;
+>>>>>>> main
 }
