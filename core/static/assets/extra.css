@@ -1,10 +1,12 @@
 .margin-top {
     margin-top: 2em;
 }
+
 .checked {
     color: orange;
 }
-.start-products{
+
+.start-products {
     margin-top: 1em;
     margin-bottom: 2em;
 }

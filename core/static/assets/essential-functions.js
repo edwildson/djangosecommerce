@@ -1,5 +1,4 @@
 function createStars(product_index, product_score) {
-    console.log('entrou aqui')
     product_index = parseInt(product_index) - 1;
 
     let products_score_tag = document.getElementsByClassName('start-products')[product_index];
