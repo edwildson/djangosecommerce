@@ -17,11 +17,11 @@ class IndexView(TemplateView):
     template_name= 'index.html'
     def get_context_data(self, *args, **kwargs):
         texts = ['Lorem ipsum', 'dolor sit amet', 'consectetur']
-        product = Product.objects.get(slug=slug)
+
         context = {
             'title': 'LolJa Onlaini',
             'texts': texts,
-            'product': product,
+
         }
         return context
     # def get(self, request):
