@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-17 02:00-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\accounts\templates\accounts\index.html:4
+msgid "Início"
+msgstr "Home"
+
+#: .\accounts\templates\accounts\index.html:5
+#: .\accounts\templates\accounts\index.html:11
+msgid "Minha Conta"
+msgstr "My account"
+
+#: .\accounts\templates\accounts\index.html:14
+#: .\accounts\templates\accounts\update_user.html:6
+msgid "Alterar Dados"
+msgstr "Change user data"
+
+#: .\accounts\templates\accounts\index.html:17
+msgid "Alterar senha"
+msgstr "Change password"
+
+#: .\accounts\templates\accounts\index.html:20
+msgid "Meus pedidos"
+msgstr "My orders"
+
+#: .\accounts\templates\accounts\index.html:26
+msgid "Bem vindo"
+msgstr "Welcome"
+
+#: .\accounts\templates\accounts\register.html:5
+msgid "Registro"
+msgstr "Registry"
+
+#: .\accounts\templates\accounts\register.html:27
+msgid "Registrar"
+msgstr "Register"
+
+#: .\accounts\templates\accounts\update_password.html:7
+#, fuzzy
+#| msgid "Alterar senha"
+msgid "Alterar Senha"
+msgstr "Change password"
+
+#: .\accounts\templates\accounts\update_password.html:24
+#: .\accounts\templates\accounts\update_user.html:23
+msgid "Salvar"
+msgstr "Save"

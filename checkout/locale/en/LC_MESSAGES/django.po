@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-17 02:00-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\checkout\templates\checkout\avaliar_produto.html:10
+msgid "Avaliar Produto"
+msgstr "Rate product"
+
+#: .\checkout\templates\checkout\avaliar_produto.html:32
+msgid "Você já avaliou este produto."
+msgstr "You have already rated this product."
+
+#: .\checkout\templates\checkout\avaliar_produto.html:34
+msgid "Seu comentário foi adicionado."
+msgstr "Your comment has been added."
+
+#: .\checkout\templates\checkout\avaliar_produto.html:36
+msgid "Adicione um comentário"
+msgstr "Add a comment"
+
+#: .\checkout\templates\checkout\avaliar_produto.html:52
+msgid "Avaliações"
+msgstr "Ratings"
+
+#: .\checkout\templates\checkout\avaliar_produto.html:68
+msgid "There are no comments yet."
+msgstr "There are no comments yet."
+
+#: .\checkout\templates\checkout\cart.html:12
+#: .\checkout\templates\checkout\checkout.html:4
+msgid "Início"
+msgstr "Home"
+
+#: .\checkout\templates\checkout\cart.html:13
+#: .\checkout\templates\checkout\cart.html:16
+#: .\checkout\templates\checkout\checkout.html:5
+msgid "Carrinho de Compras"
+msgstr "Cart"
+
+#: .\checkout\templates\checkout\cart.html:29
+msgid "Nome"
+msgstr "Name"
+
+#: .\checkout\templates\checkout\cart.html:32
+#: .\checkout\templates\checkout\order_detail.html:26
+msgid "Preço"
+msgstr "Price"
+
+#: .\checkout\templates\checkout\cart.html:35
+#: .\checkout\templates\checkout\order_detail.html:24
+msgid "Quantidade"
+msgstr "Quantity"
+
+#: .\checkout\templates\checkout\cart.html:57
+msgid "remover"
+msgstr "remove"
+
+#: .\checkout\templates\checkout\cart.html:65
+msgid "Continuar Compras"
+msgstr "Continue shopping"
+
+#: .\checkout\templates\checkout\cart.html:66
+msgid "Atualizar Carrinho"
+msgstr "Update cart"
+
+#: .\checkout\templates\checkout\cart.html:67
+msgid "Finalizar Compra"
+msgstr "Checkout"
+
+#: .\checkout\templates\checkout\checkout.html:6
+msgid "Finalização da Compra"
+msgstr "Checkout"
+
+#: .\checkout\templates\checkout\checkout.html:9
+msgid "Escolha forma de pagamento"
+msgstr "Choose payment method"
+
+#: .\checkout\templates\checkout\checkout.html:12
+#: .\checkout\templates\checkout\order_detail.html:8
+msgid "Pedido"
+msgstr "Order"
+
+#: .\checkout\templates\checkout\checkout.html:17
+msgid "Pagar com PagSeguro"
+msgstr "Pay with PagSeguro"
+
+#: .\checkout\templates\checkout\checkout.html:21
+msgid "Pagar com PayPal"
+msgstr "Pay with PayPal"
+
+#: .\checkout\templates\checkout\order_detail.html:12
+#: .\checkout\templates\checkout\order_list.html:10
+msgid "Situação"
+msgstr "Situation"
+
+#: .\checkout\templates\checkout\order_detail.html:14
+#: .\checkout\templates\checkout\order_list.html:11
+msgid "Data"
+msgstr "Date"
+
+#: .\checkout\templates\checkout\order_detail.html:16
+msgid "Meio de Pagamento"
+msgstr "Payment method"
+
+#: .\checkout\templates\checkout\order_detail.html:19
+msgid "Itens do Pedido"
+msgstr "Orders items"
+
+#: .\checkout\templates\checkout\order_detail.html:22
+msgid "Produto"
+msgstr "Product"
+
+#: .\checkout\templates\checkout\order_list.html:3
+msgid "Meus Pedidos"
+msgstr "My orders"
+
+#: .\checkout\templates\checkout\order_list.html:8
+msgid "Produtos"
+msgstr "Products"
+
+#: .\checkout\templates\checkout\order_list.html:9
+#: .\checkout\templates\checkout\order_list.html:30
+msgid "Avaliar"
+msgstr "Rate"
