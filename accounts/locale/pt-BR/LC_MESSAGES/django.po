@@ -19,7 +19,7 @@ msgstr ""
 
 #: .\accounts\templates\accounts\index.html:4
 msgid "Início"
-msgstr "Início"
+msgstr "Início" 
 
 #: .\accounts\templates\accounts\index.html:5
 #: .\accounts\templates\accounts\index.html:11

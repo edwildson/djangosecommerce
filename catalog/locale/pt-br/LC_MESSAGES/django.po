@@ -19,7 +19,7 @@ msgstr ""
 
 #: .\catalog\templates\catalog\_product.html:23
 msgid "Detalhes"
-msgstr "Detalhes"
+msgstr "Detalhes" 
 
 #: .\catalog\templates\catalog\_product.html:29
 msgid "Adicionar"

@@ -27,7 +27,7 @@ msgstr "Você já avaliou este produto."
 
 #: .\checkout\templates\checkout\avaliar_produto.html:34
 msgid "Seu comentário foi adicionado."
-msgstr "Seu comentário foi adicionado."
+msgstr "Seu comentário foi adicionado. "
 
 #: .\checkout\templates\checkout\avaliar_produto.html:36
 msgid "Adicione um comentário"
