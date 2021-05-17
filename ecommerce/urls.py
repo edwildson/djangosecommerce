@@ -31,8 +31,6 @@ urlpatterns = [
     url(r'^catalogo/', include('catalog.urls', namespace='catalog')),
     url(r'^admin/', admin.site.urls),
     url(r'^compras/', include('checkout.urls', namespace='checkout')),
-
-
-
+    url(r'^paypal/', include('paypal.standard.ipn.urls')),
     url(r'^i18n/', include('django.conf.urls.i18n')),
 ]

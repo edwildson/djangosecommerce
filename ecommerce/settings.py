@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # libs
     'widget_tweaks',
+    'paypal.standard.ipn',
     # apps
     'core',
     'catalog',
@@ -184,6 +185,10 @@ MESSAGE_TAGS = {
 PAGSEGURO_TOKEN = ''
 PAGSEGURO_EMAIL = 'edwildson@hotmail.com'
 PAGSEGURO_SANDBOX = True
+
+PAYPAL_TEST = True
+PAYPAL_EMAIL = 'edwildson@hotmail.com'
+
 
 try:
     from .local_settings import *

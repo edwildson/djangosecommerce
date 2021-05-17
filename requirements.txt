@@ -7,3 +7,4 @@ model-mommy==1.2.6
 django-widget-tweaks
 pagseguro==0.2.1
 django-crispy-forms==1.11.2
+django-paypal==0.3.3
