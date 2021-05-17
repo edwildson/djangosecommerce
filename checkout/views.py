@@ -1,3 +1,9 @@
+
+import logging
+import json
+
+from django.views.decorators.csrf import csrf_exempt
+
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import (
     RedirectView, TemplateView, ListView, DetailView)
@@ -10,10 +16,14 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from datetime import datetime
 from django import forms
+from django.conf import settings
 
 from paypal.standard.forms import PayPalPaymentsForm
 from paypal.standard.models import ST_PP_COMPLETED
 from paypal.standard.ipn.signals import valid_ipn_received
+
+
+logger = logging.getLogger('checkout.views')
 
 
 class CreateCartItemView(RedirectView):
