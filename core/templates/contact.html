@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static i18n %}
 {% load widget_tweaks %}
 
 {% block title %}
@@ -8,10 +8,10 @@
 
 {% block container %}
 <div class="page-header">
-    <h1>Fale conosco</h1>
+    <h1>{% trans 'Fale conosco' %}</h1>
 	{% if success %}
 	<div class = "alert alert-sucess">
-		Mensagem enviada com sucesso!
+		{% trans 'Mensagem enviada com sucesso!' %}
 	</div>
 	{% endif %}
     <form class="form-horizontal" action="" method="post">
@@ -30,7 +30,7 @@
             {% endfor %}
             <div class="form-group">
               <div class="col-md-9 col-md-offset-3">
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary">{% trans 'Enviar' %}</button>
               </div>
             </div>
         </fieldset>

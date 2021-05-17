@@ -1,3 +1,4 @@
+{% load static i18n %}
 <div class="col-sm-6 col-md-4 container margin-top">
   <div class="thumbnail">
     <a href="{{ product.get_absolute_url }}">
@@ -19,13 +20,13 @@
           href="{{ product.get_absolute_url }}"
           class="btn btn-success"
           role="button"
-          >Detalhes</a
+          >{% trans 'Detalhes' %} </a
         >
         <a
           href="{% url 'checkout:create_cartitem' product.slug %}"
           class="btn btn-primary"
           role="button"
-          >Adicionar</a
+          >{% trans 'Adicionar' %}</a
         >
       </p>
     </div>

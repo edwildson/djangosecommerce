@@ -1,14 +1,16 @@
-{% extends "accounts/index.html" %} {% load pagination %} {% block title %} Meus
+{% extends "accounts/index.html" %} {% load static i18n %}{% load pagination %} {% block title %} Meus
 Pedidos {% endblock %} {% block accounts_container %}
-<h2>Meus Pedidos</h2>
+<h2>{% trans 'Meus Pedidos' %}</h2>
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Produtos</th>
-      <th>Situação</th>
-      <th>Data</th>
-      <th>Avaliar</th>
+        <th>ID</th>
+        <th>{% trans 'Produtos' %}</th>
+        <th>{% trans 'Avaliar' %}</th>
+        <th>{% trans 'Situação' %}</th>
+        <th>{% trans 'Data' %}</th>
+        
+     
     </tr>
   </thead>
   <tbody>
@@ -25,7 +27,7 @@ Pedidos {% endblock %} {% block accounts_container %}
             href="{%  url 'checkout:rating_product' product.slug  %}"
             class=""
             role="button"
-            >Avaliar</a
+            >{% trans 'Avaliar' %}</a
           >
         </p>
       </td>

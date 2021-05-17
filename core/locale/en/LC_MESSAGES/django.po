@@ -1,0 +1,74 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-17 02:00-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\core\templates\base.html:102 .\core\templates\base.html:180
+msgid "Início"
+msgstr "Home"
+
+#: .\core\templates\base.html:110
+msgid "Categorias"
+msgstr "Categories"
+
+#: .\core\templates\base.html:121 .\core\templates\base.html:186
+msgid "Contato"
+msgstr "Contact"
+
+#: .\core\templates\base.html:127
+msgid "Minha Conta"
+msgstr "My account"
+
+#: .\core\templates\base.html:129
+msgid "Sair"
+msgstr "Logout"
+
+#: .\core\templates\base.html:131 .\core\templates\login.html:11
+msgid "Entrar"
+msgstr "Login"
+
+#: .\core\templates\base.html:134
+msgid "Registrar"
+msgstr "Register"
+
+#: .\core\templates\base.html:140
+msgid "Carrinho"
+msgstr "Cart"
+
+#: .\core\templates\base.html:178
+msgid "Voltar ao topo"
+msgstr "Back to top"
+
+#: .\core\templates\base.html:183
+msgid "Produtos"
+msgstr "Products"
+
+#: .\core\templates\base.html:187
+msgid "Termos e privacidade"
+msgstr "Terms and privacy"
+
+#: .\core\templates\contact.html:11
+msgid "Fale conosco"
+msgstr "Contact us"
+
+#: .\core\templates\contact.html:14
+msgid "Mensagem enviada com sucesso!"
+msgstr "Message sent successfully!"
+
+#: .\core\templates\contact.html:33 .\core\templates\login.html:41
+msgid "Enviar"
+msgstr "Send"
