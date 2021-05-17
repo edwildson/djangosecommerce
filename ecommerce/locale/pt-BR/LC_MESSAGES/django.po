@@ -23,4 +23,4 @@ msgstr "Português"
 
 #: .\ecommerce\settings.py:140
 msgid "English"
-msgstr "Inglês"
+msgstr "Inglês "

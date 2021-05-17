@@ -27,7 +27,7 @@ msgstr "Adicionar"
 
 #: .\catalog\templates\catalog\product.html:27
 msgid "Adicionar ao carrinho"
-msgstr "Adicionar ao carrinho"
+msgstr "Adicionar ao carrinho "
 
 #: .\catalog\templates\catalog\product_list.html:11
 msgid "Produtos"

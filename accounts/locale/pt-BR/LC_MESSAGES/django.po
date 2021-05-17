@@ -60,4 +60,4 @@ msgstr "Alterar senha"
 #: .\accounts\templates\accounts\update_password.html:24
 #: .\accounts\templates\accounts\update_user.html:23
 msgid "Salvar"
-msgstr "Salvar"
+msgstr "Salvar "

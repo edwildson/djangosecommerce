@@ -67,7 +67,7 @@ msgstr "Fale conosco"
 
 #: .\core\templates\contact.html:14
 msgid "Mensagem enviada com sucesso!"
-msgstr "Mensagem enviada com sucesso!"
+msgstr "Mensagem enviada com sucesso! "
 
 #: .\core\templates\contact.html:33 .\core\templates\login.html:41
 msgid "Enviar"

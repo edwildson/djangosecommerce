@@ -88,7 +88,7 @@ msgstr "Finalização da Compra"
 
 #: .\checkout\templates\checkout\checkout.html:9
 msgid "Escolha forma de pagamento"
-msgstr "Escolha forma de pagamento"
+msgstr "Escolha forma de pagamento "
 
 #: .\checkout\templates\checkout\checkout.html:12
 #: .\checkout\templates\checkout\order_detail.html:8

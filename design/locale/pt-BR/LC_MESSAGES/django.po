@@ -19,8 +19,8 @@ msgstr ""
 
 #: .\design\base.html:30
 msgid "Início"
-msgstr ""
+msgstr "Início"
 
 #: .\design\base.html:38
 msgid "Categorias"
-msgstr ""
+msgstr "Categorias"
