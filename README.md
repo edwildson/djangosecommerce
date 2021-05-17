@@ -4,7 +4,7 @@ Projeto de didático utilizado para o curso de sistemas distribuídos, feito em 
 
 # Requisitos
 - [ ] Número mínimo de modelos (tabelas): de sete a dez [ pode haver mais ] 
-- [ x ] Customização do Admin (fieldsets, modelos inline etc)
+- [x] Customização do Admin (fieldsets, modelos inline etc)
 - [ ] Implementar recuperação de senha (Autenticação)
 - [ ] Utilizar recursos de e-mail e considerar smtp de desenvolvimento, se necessário (Autenticação)
 - [ ] Aplicar recursos de Validação de Dados 
@@ -16,4 +16,4 @@ Projeto de didático utilizado para o curso de sistemas distribuídos, feito em 
 - [ ] Sessões anônimas 
 - [ ] Consumir dados de qualquer serviço online via API REST (ou similar)
 - [ ] Fornecer API para consumo de recursos por outros sistemas ou projetos dos colegas (é o inverso do item anterior, onde o seu projeto atuará como server e não como client)
-- [ x ] Utilizar internacionalização (inglês/português)
+- [x] Utilizar internacionalização (inglês/português)
