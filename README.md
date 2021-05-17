@@ -11,7 +11,7 @@ Projeto de didático utilizado para o curso de sistemas distribuídos, feito em 
 - [ ] Utilização de banco de dados (Maria DB, Postgres, MySQL)
 - [ ] Humanização
 - [ ] Framework de Mensagens
-- [ ] Paginação
+- [x] Paginação
 - [ ] Definir um projeto (site) com, pelo menos duas aplicações (módulos) / ver projetos vs. aplicações
 - [ ] Sessões anônimas 
 - [ ] Consumir dados de qualquer serviço online via API REST (ou similar)
