@@ -3,7 +3,7 @@ Projeto de didático utilizado para o curso de sistemas distribuídos, feito em 
 
 
 # Requisitos
-- [ ] Número mínimo de modelos (tabelas): de sete a dez [ pode haver mais ] 
+- [x] Número mínimo de modelos (tabelas): de sete a dez [ pode haver mais ] 
 - [x] Customização do Admin (fieldsets, modelos inline etc)
 - [ ] Implementar recuperação de senha (Autenticação)
 - [ ] Utilizar recursos de e-mail e considerar smtp de desenvolvimento, se necessário (Autenticação)
