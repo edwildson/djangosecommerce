@@ -18,9 +18,12 @@ from django.contrib import admin
 from django.conf import settings
 from django.views.static import serve as serve_static
 from django.contrib.auth.views import login, logout
+from django.contrib.auth import views as auth_views
+import os
 
 from core import views
 
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -33,4 +36,19 @@ urlpatterns = [
     url(r'^compras/', include('checkout.urls', namespace='checkout')),
     url(r'^paypal/', include('paypal.standard.ipn.urls')),
     url(r'^i18n/', include('django.conf.urls.i18n')),
+
+    # url('^accounts/', include('django.contrib.auth.urls')),
+    url(r'^reiniciar-senha/$', auth_views.password_reset,
+        {'template_name': BASE_DIR + '/core/templates/registration/password_reset_form.html'},
+        name='password_reset'),
+    url(r'^reiniciar-senha/confirmacao/$', auth_views.password_reset_done,
+        {'template_name': BASE_DIR + '/core/templates/registration/password_reset_done.html'},
+        name='password_reset_done'),
+    url(r'^reiniciar/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+        auth_views.password_reset_confirm,
+        {'template_name': BASE_DIR + '/core/templates/registration/password_reset_confirm.html'},
+        name='password_reset_confirm'),
+    url(r'^reiniciar/confirmacao/$', auth_views.password_reset_complete,
+        {'template_name': BASE_DIR + '/core/templates/registration/password_reset_complete.html'},
+        name='password_reset_complete'),
 ]

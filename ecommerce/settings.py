@@ -19,7 +19,6 @@ from django.utils.translation import ugettext_lazy as _
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
@@ -30,7 +29,6 @@ SECRET_KEY = '-uhpfb-=5&l!s0h5sn8*(3a^slvqng24z7b$0yt!a8w+2*$m9#'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -50,7 +48,6 @@ INSTALLED_APPS = [
     'accounts',
     'checkout',
     'crispy_forms',
-
 ]
 
 MIDDLEWARE = [
@@ -91,7 +88,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
@@ -101,7 +97,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -120,7 +115,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
@@ -141,7 +135,6 @@ LANGUAGES = [
     ("en", _("English")),
 ]
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
@@ -161,6 +154,8 @@ EMAIL_HOST = ''
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 DEFAULT_FROM_EMAIL = 'admin@djangoecommerce.com'
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# EMAIL_FILE_PATH = str(os.path.join(BASE_DIR, 'sent_emails'))
 
 # auth
 LOGIN_URL = 'login'
@@ -181,7 +176,6 @@ MESSAGE_TAGS = {
     messages_constants.ERROR: 'danger',
 }
 
-
 PAGSEGURO_TOKEN = ''
 PAGSEGURO_EMAIL = 'edwildson@hotmail.com'
 PAGSEGURO_SANDBOX = True
@@ -189,6 +183,7 @@ PAGSEGURO_SANDBOX = True
 PAYPAL_TEST = True
 PAYPAL_EMAIL = 'edwildson@hotmail.com'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 try:
     from .local_settings import *
