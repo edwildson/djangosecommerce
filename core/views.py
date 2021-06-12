@@ -27,8 +27,10 @@ from django.core.mail import EmailMessage
 
 User = get_user_model()
 
+
 class IndexView(TemplateView):
-    template_name= 'index.html'
+    template_name = 'index.html'
+
     def get_context_data(self, *args, **kwargs):
         texts = ['Lorem ipsum', 'dolor sit amet', 'consectetur']
         context = {
@@ -43,6 +45,8 @@ class IndexView(TemplateView):
     #         'texts': texts,
     #     }
     #     return render(request, 'index.html', context)
+
+
 # def index(request):
 #     texts = ['Lorem ipsum', 'dolor sit amet', 'consectetur']
 #     context = {
@@ -52,6 +56,7 @@ class IndexView(TemplateView):
 #     return render(request, 'index.html', context)
 
 index = IndexView.as_view()
+
 
 def contact(request):
     success = False
@@ -66,8 +71,6 @@ def contact(request):
         'success': success
     }
     return render(request, 'contact.html', context)
-
-
 
 
 # Removido por causa da aplicação accounts
@@ -85,6 +88,7 @@ def deprecate_current_app(func):
     """
     Handle deprecation of the current_app parameter of the views.
     """
+
     @functools.wraps(func)
     def inner(*args, **kwargs):
         if 'current_app' in kwargs:
@@ -99,6 +103,7 @@ def deprecate_current_app(func):
             if request and current_app is not None:
                 request.current_app = current_app
         return func(*args, **kwargs)
+
     return inner
 
 
@@ -133,6 +138,11 @@ def password_reset(request,
                 'extra_email_context': extra_email_context,
             }
             form.save(**opts)
+
+            # email = EmailMessage(
+            #
+            # )
+
             return HttpResponseRedirect(post_reset_redirect)
     else:
         form = password_reset_form()

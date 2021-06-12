@@ -150,11 +150,14 @@ ALLOWED_HOSTS = ['*']
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
 # Email
-EMAIL_HOST = ''
-EMAIL_HOST_USER = 'loljaonline@gmail.com'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = 'loljaonlinee@gmail.com'
 EMAIL_HOST_PASSWORD = 'loljaonline2021'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+
 DEFAULT_FROM_EMAIL = 'admin@djangoecommerce.com'
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # EMAIL_FILE_PATH = str(os.path.join(BASE_DIR, 'sent_emails'))
 
 # auth

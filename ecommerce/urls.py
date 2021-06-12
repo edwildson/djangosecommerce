@@ -40,7 +40,6 @@ urlpatterns = [
     url(r'^paypal/', include('paypal.standard.ipn.urls')),
     url(r'^i18n/', include('django.conf.urls.i18n')),
 
-    # url('^accounts/', include('django.contrib.auth.urls')),
     url(r'^reiniciar-senha/$', password_reset,
         {'template_name': BASE_DIR + '/core/templates/registration/password_reset_form.html'},
         name='password_reset'),
