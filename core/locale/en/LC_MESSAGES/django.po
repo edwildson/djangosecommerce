@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-17 02:00-0300\n"
+"POT-Creation-Date: 2021-06-11 23:06-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,58 +17,132 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\core\templates\base.html:102 .\core\templates\base.html:180
+#: templates/base.html:102 templates/base.html:180
 msgid "Início"
 msgstr "Home"
 
-#: .\core\templates\base.html:110
+#: templates/base.html:110
 msgid "Categorias"
 msgstr "Categories"
 
-#: .\core\templates\base.html:121 .\core\templates\base.html:186
+#: templates/base.html:121 templates/base.html:186
 msgid "Contato"
 msgstr "Contact"
 
-#: .\core\templates\base.html:127
+#: templates/base.html:127
 msgid "Minha Conta"
 msgstr "My account"
 
-#: .\core\templates\base.html:129
+#: templates/base.html:129
 msgid "Sair"
 msgstr "Logout"
 
-#: .\core\templates\base.html:131 .\core\templates\login.html:11
+#: templates/base.html:131 templates/login.html:11
 msgid "Entrar"
 msgstr "Login"
 
-#: .\core\templates\base.html:134
+#: templates/base.html:134
 msgid "Registrar"
 msgstr "Register"
 
-#: .\core\templates\base.html:140
+#: templates/base.html:140
 msgid "Carrinho"
 msgstr "Cart"
 
-#: .\core\templates\base.html:178
+#: templates/base.html:178
 msgid "Voltar ao topo"
 msgstr "Back to top"
 
-#: .\core\templates\base.html:183
+#: templates/base.html:183
 msgid "Produtos"
 msgstr "Products"
 
-#: .\core\templates\base.html:187
+#: templates/base.html:187
 msgid "Termos e privacidade"
 msgstr "Terms and privacy"
 
-#: .\core\templates\contact.html:11
+#: templates/contact.html:11
 msgid "Fale conosco"
 msgstr "Contact us"
 
-#: .\core\templates\contact.html:14
+#: templates/contact.html:14
 msgid "Mensagem enviada com sucesso!"
 msgstr "Message sent successfully!"
 
-#: .\core\templates\contact.html:33 .\core\templates\login.html:41
+#: templates/contact.html:33 templates/login.html:43
 msgid "Enviar"
 msgstr "Send"
+
+#: templates/login.html:44
+msgid "Esqueceu sua senha?"
+msgstr "Password forgotten?"
+
+#: templates/registration/password_reset_complete.html:4
+#: templates/registration/password_reset_confirm.html:4
+#: templates/registration/password_reset_confirm.html:16
+msgid "Reiniciar senha"
+msgstr "Password reset"
+
+#: templates/registration/password_reset_complete.html:8
+msgid "Sua senha foi reiniciada. Você deve acessar"
+msgstr "Your password has been reset. You must access"
+
+#: templates/registration/password_reset_complete.html:8
+msgid "agora"
+msgstr "now"
+
+#: templates/registration/password_reset_confirm.html:9
+#, fuzzy
+#| msgid "Esqueceu sua senha?"
+msgid "Reinicie sua senha"
+msgstr "Reset your password"
+
+#: templates/registration/password_reset_confirm.html:11
+msgid "Por favor, entre com a nova senha duas vezes."
+msgstr "Please enter the new password twice."
+
+#: templates/registration/password_reset_confirm.html:19
+msgid ""
+"O link para redefinição de senha é inválido, provavelmente por já ter sido "
+"utilizado. Por favor, realize uma nova solicitação."
+msgstr ""
+"The password reset link was invalid, possibly because it hasalready been "
+"used. Please request a new password reset."
+
+#: templates/registration/password_reset_done.html:5
+msgid "Confirmação do Envio de E-mail"
+msgstr "Email send confirmation"
+
+#: templates/registration/password_reset_done.html:10
+msgid ""
+"Nós lhe enviamos instruções para redefinição de sua senha, se existe alguma "
+"conta associada ao e-mail inserido. Você deve recebê-lo em breve."
+msgstr ""
+"We've emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly."
+
+#: templates/registration/password_reset_done.html:17
+msgid ""
+"Se você não receber o e-mail, por favor verifique se o e-mail inserido é "
+"realmente o que está associado ao seu cadastro, e verifique também a caixa "
+"de spam."
+msgstr ""
+"If you don't receive an email, please make sure you've entered the address "
+"you registered with, and check your spam folder."
+
+#: templates/registration/password_reset_form.html:6
+#: templates/registration/password_reset_form.html:13
+msgid "Recuperar Acesso"
+msgstr "Access Recover"
+
+#: templates/registration/password_reset_form.html:15
+msgid ""
+"Esqueceu sua senha? Insira seu e-mail logo abaixo, e nós lhe enviaremos "
+"instruções para insirar uma nova."
+msgstr ""
+"Forgotten your password? Enter your email address below, and we'll email "
+"instructions for setting a new one."
+
+#: templates/registration/password_reset_form.html:23
+msgid "Envie-me as instruções!"
+msgstr "Send me the instructions!"
