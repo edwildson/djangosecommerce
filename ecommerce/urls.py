@@ -15,14 +15,13 @@ Including another URLconf
 """
 import os
 
-
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
 from django.views.static import serve as serve_static
 from django.contrib.auth.views import login, logout
 from django.contrib.auth import views as auth_views
-from core.views import password_reset
+from core.views import password_reset, apiGetProducts
 
 from core import views
 
@@ -53,4 +52,7 @@ urlpatterns = [
     url(r'^reiniciar/confirmacao/$', auth_views.password_reset_complete,
         {'template_name': BASE_DIR + '/core/templates/registration/password_reset_complete.html'},
         name='password_reset_complete'),
+
+    #     Acesso externo
+    url(r'api/products/', apiGetProducts, name='api_products'),
 ]

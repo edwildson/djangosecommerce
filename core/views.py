@@ -1,29 +1,28 @@
 # coding=utf-8
 import functools
 import warnings
+import json
 
+from django.core import serializers
 from django.shortcuts import render
-from django.http import HttpResponse
 from .forms import ContactForm
-from django.core.mail import send_mail
-from django.conf import settings
-from django.core.urlresolvers import reverse_lazy
-from django.contrib.auth.forms import UserCreationForm
+from catalog.views import Product
 from django.views.generic import View, TemplateView, CreateView
 from django.contrib.auth import get_user_model
 from django.contrib import messages
 
-# Sobrecarga da classe para resetar senha
+# Sobrecarga da classe para reiniciar senha
 from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.tokens import default_token_generator
 from django.shortcuts import resolve_url
 from django.urls import reverse
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.utils.deprecation import RemovedInDjango20Warning
 from django.template.response import TemplateResponse
 from django.views.decorators.csrf import csrf_protect
 from django.utils.translation import ugettext as _
-from django.core.mail import EmailMessage
+
+from django.http import JsonResponse
 
 User = get_user_model()
 
@@ -154,3 +153,25 @@ def password_reset(request,
         context.update(extra_context)
 
     return TemplateResponse(request, template_name, context)
+
+
+def apiGetProducts(request):
+    if request.method == "GET":
+        products = Product.objects.all()
+        products_resp = []
+        for product in products:
+            products_resp.append({
+                'name': product.name,
+                'score': product.score,
+                'description': product.description,
+                'price': product.price
+            })
+        # qs_json = serializers.serialize('json', products_resp)
+        return HttpResponse(JsonResponse({
+            'store': "Lolja Online",
+            'data': products_resp
+        }), content_type='application/json')
+        # return JsonResponse(json.dumps(products))
+
+    return HttpResponse(JsonResponse({'message': "São aceitas apenas requisições GET."}),
+                        content_type='application/json')
