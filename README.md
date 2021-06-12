@@ -12,9 +12,9 @@ Projeto de didático utilizado para o curso de sistemas distribuídos, feito em 
 - [ ] Humanização
 - [ ] Framework de Mensagens
 - [x] Paginação
-- [ ] Definir um projeto (site) com, pelo menos duas aplicações (módulos) / ver projetos vs. aplicações
+- [x] Definir um projeto (site) com, pelo menos duas aplicações (módulos) / ver projetos vs. aplicações
 - [x] Sessões anônimas 
-- [ ] Consumir dados de qualquer serviço online via API REST (ou similar)
+- [x] Consumir dados de qualquer serviço online via API REST (ou similar)
 - [x] Fornecer API para consumo de recursos por outros sistemas ou projetos dos colegas (é o inverso do item anterior, onde o seu projeto atuará como server e não como client)
 - [x] Utilizar internacionalização (inglês/português)
 
