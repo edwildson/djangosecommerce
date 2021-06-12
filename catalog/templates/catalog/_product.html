@@ -1,37 +1,27 @@
 {% load static i18n %}
 <div class="col-sm-6 col-md-4 container margin-top">
-  <div class="thumbnail">
-    <a href="{{ product.get_absolute_url }}">
-      <img src="http://placehold.it/350x250" alt="" />
-    </a>
-    <div class="caption">
-      <h3>{{ product }}</h3>
-      {{ product.description|linebreaks }}
-      <div class="start-products">
-        <input
-          type="hidden"
-          id="score"
-          name="score"
-          value="{{ product.score }}"
-        />
-      </div>
-      <p>
-        <a
-          href="{{ product.get_absolute_url }}"
-          class="btn btn-success"
-          role="button"
-          >{% trans 'Detalhes' %} </a
-        >
-        <a
-          href="{% url 'checkout:create_cartitem' product.slug %}"
-          class="btn btn-primary"
-          role="button"
-          >{% trans 'Adicionar' %}</a
-        >
-      </p>
+    <div class="thumbnail">
+        <a href="{{ product.get_absolute_url }}">
+            <img src="http://placehold.it/350x250" alt=""/>
+        </a>
+        <div class="caption">
+            <h3>{{ product }}</h3>
+            <span class="abstract">{{ product.description }}</span>
+            <div class="start-products">
+                <input type="hidden" id="score" name="score" value="{{ product.score }}"/>
+            </div>
+            <div class="font-bold pb-5 d-flex align-items-center">
+                R$ <h2>{{ product.price }}</h2>
+            </div>
+            <p>
+                <a href="{{ product.get_absolute_url }}" class="btn btn-success"
+                   role="button">{% trans 'Detalhes' %} </a>
+                <a href="{% url 'checkout:create_cartitem' product.slug %}" class="btn btn-primary"
+                   role="button">{% trans 'Adicionar' %}</a>
+            </p>
+        </div>
     </div>
-  </div>
 </div>
 <script>
-  createStars('{{ product_index }}', '{{ product.score }}')
+    createStars('{{ product_index }}', '{{ product.score }}')
 </script>
