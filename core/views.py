@@ -1,9 +1,7 @@
 # coding=utf-8
 import functools
 import warnings
-import json
 
-from django.core import serializers
 from django.shortcuts import render
 from .forms import ContactForm
 from catalog.views import Product
@@ -37,22 +35,7 @@ class IndexView(TemplateView):
             'texts': texts,
         }
         return context
-    # def get(self, request):
-    #     texts = ['Lorem ipsum', 'dolor sit amet', 'consectetur']
-    #     context = {
-    #         'title': 'LolJa Onlaini',
-    #         'texts': texts,
-    #     }
-    #     return render(request, 'index.html', context)
 
-
-# def index(request):
-#     texts = ['Lorem ipsum', 'dolor sit amet', 'consectetur']
-#     context = {
-#         'title': 'LolJa Onlaini',
-#         'texts': texts,
-#     }
-#     return render(request, 'index.html', context)
 
 index = IndexView.as_view()
 
@@ -71,17 +54,6 @@ def contact(request):
     }
     return render(request, 'contact.html', context)
 
-
-# Removido por causa da aplicação accounts
-# class RegisterView(CreateView):
-
-#     form_class = UserCreationForm
-#     template_name = 'register.html'
-#     model = User
-#     success_url = reverse_lazy('index')
-
-
-# register = RegisterView.as_view()
 
 def deprecate_current_app(func):
     """
@@ -137,11 +109,6 @@ def password_reset(request,
                 'extra_email_context': extra_email_context,
             }
             form.save(**opts)
-
-            # email = EmailMessage(
-            #
-            # )
-
             return HttpResponseRedirect(post_reset_redirect)
     else:
         form = password_reset_form()
@@ -159,6 +126,7 @@ def apiGetProducts(request):
     if request.method == "GET":
         products = Product.objects.all()
         products_resp = []
+
         for product in products:
             products_resp.append({
                 'name': product.name,
@@ -166,12 +134,11 @@ def apiGetProducts(request):
                 'description': product.description,
                 'price': product.price
             })
-        # qs_json = serializers.serialize('json', products_resp)
+
         return HttpResponse(JsonResponse({
             'store': "Lolja Online",
             'data': products_resp
         }), content_type='application/json')
-        # return JsonResponse(json.dumps(products))
 
     return HttpResponse(JsonResponse({'message': "São aceitas apenas requisições GET."}),
                         content_type='application/json')

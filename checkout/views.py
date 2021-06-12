@@ -1,10 +1,6 @@
-
 import logging
-import json
 
-from django.views.decorators.csrf import csrf_exempt
-
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import (
     RedirectView, TemplateView, ListView, DetailView)
 from .models import CartItem, Order

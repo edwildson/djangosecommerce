@@ -1,41 +1,48 @@
-{% extends "accounts/index.html" %} {% load static i18n %}{% load pagination %} {% block title %} Meus
-Pedidos {% endblock %} {% block accounts_container %}
-<h2>{% trans 'Meus Pedidos' %}</h2>
-<table class="table table-bordered">
-  <thead>
-    <tr>
-        <th>ID</th>
-        <th>{% trans 'Produtos' %}</th>
-        <th>{% trans 'Avaliar' %}</th>
-        <th>{% trans 'Situação' %}</th>
-        <th>{% trans 'Data' %}</th>
-        
-     
-    </tr>
-  </thead>
-  <tbody>
-    {% for order in object_list %} {% for product in order.products %}
-    <tr>
-      <td>
-        <a href="{% url 'checkout:order_detail' order.pk %}">#{{ order.pk }}</a>
-      </td>
+{% extends "accounts/index.html" %}
+{% load static i18n %}
+{% load pagination %}
+{% load humanize %}
 
-      <td>{{ product.name }}{% if not forloop.last %}<br />{% endif %}</td>
-      <td>
-        <p>
-          <a
-            href="{%  url 'checkout:rating_product' product.slug  %}"
-            class=""
-            role="button"
-            >{% trans 'Avaliar' %}</a
-          >
-        </p>
-      </td>
+{% block title %} Meus Pedidos {% endblock %}
 
-      <td>{{ order.get_status_display }}</td>
-      <td>{{ order.created|date:"d/m/Y" }}</td>
-    </tr>
-    {% endfor %} {% endfor %}
-  </tbody>
-</table>
-{% pagination request paginator page_obj %} {% endblock %}
+{% block accounts_container %}
+
+    <h2>{% trans 'Meus Pedidos' %}</h2>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>{% trans 'Produtos' %}</th>
+            <th>{% trans 'Avaliar' %}</th>
+            <th>{% trans 'Situação' %}</th>
+            <th>{% trans 'Data' %}</th>
+
+
+        </tr>
+
+        {% for order in object_list %}
+            {% for product in order.products %}
+                <tr>
+                    <td>
+                        <a href="{% url 'checkout:order_detail' order.pk %}">#{{ order.pk }}</a>
+                    </td>
+
+                    <td>{{ product.name }}{% if not forloop.last %}<br/>{% endif %}</td>
+                    <td>
+                        <p>
+                            <a
+                                    href="{% url 'checkout:rating_product' product.slug %}"
+                                    class=""
+                                    role="button"
+                            >{% trans 'Avaliar' %}</a
+                            >
+                        </p>
+                    </td>
+
+                    <td>{{ order.get_status_display }}</td>
+                    <td>{{ order.created|date:"d/m/Y" }}</td>
+                </tr>
+            {% endfor %}
+        {% endfor %}
+    </table>
+    {% pagination request paginator page_obj %} {% endblock %}

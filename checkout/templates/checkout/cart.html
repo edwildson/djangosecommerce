@@ -2,71 +2,58 @@
 
 {% load widget_tweaks %}
 {% load static i18n %}
+{% load humanize %}
 
 {% block title %}
-Carrinho de Compras
+    Carrinho de Compras
 {% endblock %}
 
 {% block container %}
-<ol class="breadcrumb">
-  <li><a href="{% url 'index' %}">{% trans 'Início' %}</a></li>
-  <li class="active">{% trans 'Carrinho de Compras' %}</li>
-</ol>
-<div class="page-header">
-    <h1>{% trans 'Carrinho de Compras' %}</h1>
-</div>
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <form class="" action="" method="post">
-            {% csrf_token %}
-            {{ formset.management_form }}
-            <table class="table table-bordered">
-                <thead>
-                    <th>
-                        ID
-                    </th>
-                    <th>
-                        {% trans 'Nome' %}
-                    </th>
-                    <th>
-                        {% trans 'Preço' %}
-                    </th>
-                    <th style="width: 10%;">
-                        {% trans 'Quantidade' %}
-                    </th>
-                    <th>
-
-                    </th>
-                </thead>
-                <tbody>
-                    {% for form in formset %}
-                    <tr>
-                        <td>
-                            {{ form.instance.product.pk }}
-                        </td>
-                        <td>
-                            {{ form.instance.product }}
-                        </td>
-                        <td>
-                            R$ {{ form.instance.price|floatformat:"2" }}
-                        </td>
-                        <td>
-                            {% render_field form.quantity class='form-control' %}
-                        </td>
-                        <td class="text-center">
-                            <button value="on" type="submit" name="{{ form.DELETE.html_name }}" class="btn btn-danger btn-sm">{% trans 'remover' %}</button>
-                            {{ form.id }}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <p class="text-right">
-                <a href="{% url 'catalog:product_list' %}" class="pull-left btn btn-default">{% trans 'Continuar Compras'%}</a>
-                <button type="submit" class="btn btn-primary" name="button">{% trans 'Atualizar Carrinho' %}</button></li>
-                <a href="{% url 'checkout:checkout' %}" class="btn btn-success">{% trans 'Finalizar Compra' %}</a>
-            </p>
-        </form>
+    <ol class="breadcrumb">
+        <li><a href="{% url 'index' %}">{% trans 'Início' %}</a></li>
+        <li class="active">{% trans 'Carrinho de Compras' %}</li>
+    </ol>
+    <div class="page-header">
+        <h1>{% trans 'Carrinho de Compras' %}</h1>
     </div>
-</div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <form class="" action="" method="post">
+                {% csrf_token %}
+                {{ formset.management_form }}
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>ID</th>
+                            <th>{% trans 'Nome' %}</th>
+                            <th>{% trans 'Preço' %}</th>
+                            <th>{% trans 'Quantidade' %}</th>
+                        </tr>
+
+                        {% for form in formset %}
+                            <tr>
+                                <td>{{ form.instance.product.pk }}</td>
+                                <td>{{ form.instance.product }}</td>
+                                <td>R$ {{ form.instance.price|floatformat:"2" }}</td>
+                                <td>{% render_field form.quantity class='form-control' %}</td>
+                                <td class="text-center">
+                                    <button value="on" type="submit" name="{{ form.DELETE.html_name }}"
+                                            class="btn btn-danger btn-sm">{% trans 'remover' %}</button>
+                                    {{ form.id }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                <p class="text-right">
+                    <a href="{% url 'catalog:product_list' %}"
+                       class="pull-left btn btn-default">{% trans 'Continuar Compras' %}</a>
+                    <button type="submit" class="btn btn-primary"
+                            name="button">{% trans 'Atualizar Carrinho' %}</button>
+                    </li>
+                    <a href="{% url 'checkout:checkout' %}" class="btn btn-success">{% trans 'Finalizar Compra' %}</a>
+                </p>
+            </form>
+        </div>
+    </div>
 {% endblock %}
