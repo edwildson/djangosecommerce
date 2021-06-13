@@ -30,17 +30,14 @@
                     <td>{{ product.name }}{% if not forloop.last %}<br/>{% endif %}</td>
                     <td>
                         <p>
-                            <a
-                                    href="{% url 'checkout:rating_product' product.slug %}"
-                                    class=""
-                                    role="button"
-                            >{% trans 'Avaliar' %}</a
-                            >
+                            <a href="{% url 'checkout:rating_product' product.slug %}" role="button">
+                                {% trans 'Avaliar' %}
+                            </a>
                         </p>
                     </td>
 
                     <td>{{ order.get_status_display }}</td>
-                    <td>{{ order.created|date:"d/m/Y" }}</td>
+                    <td>{{ order.created|naturalday:"d/m/Y" }}</td>
                 </tr>
             {% endfor %}
         {% endfor %}

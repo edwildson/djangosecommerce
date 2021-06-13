@@ -1,10 +1,17 @@
-{% extends 'base.html' %} {% block title %} {{ product }} | {{ block.super }}
-{% endblock title %} {% block container %} {% load crispy_forms_tags %}
+{% extends 'base.html' %}
 
-     {% load static %}
+{% load humanize %}
+
+{% block title %} {{ product }} | {{ block.super }} {% endblock title %}
+
+{% block container %}
+
+    {% load crispy_forms_tags %}
+
+    {% load static %}
     {% load static i18n %}
     <link rel="stylesheet" type="text/css" href="{% static 'assets/bootstrap_ratings.css' %}">
-    <link rel="stylesheet" href="../../assets/bootstrap_ratings.css" media="screen"/>
+    {#    <link rel="stylesheet" href="../../assets/bootstrap_ratings.css" media="screen"/>#}
 
     <div class="page-header">
         <h2>{% trans 'Avaliar Produto' %}</h2>
@@ -60,7 +67,7 @@
 
                     </div>
                     <div class="card-footer text-muted">
-                        {{ comment.date }}
+                        {{ comment.date|naturaltime }}
                     </div>
                 </div>
 
@@ -71,13 +78,13 @@
     </div>
 
     <script>
-    	
-    	if ("{{ done }}" === "True") {
+
+        if ("{{ done }}" === "True") {
             let rate_div_tag = document.getElementsByClassName('rate-product')[0];
             rate_div_tag.classList.remove('rate-product');
 
             createStars(1, "{{ score_by_user }}");
-        }else if ("{{ new_rating }}" != "None") {
+        } else if ("{{ new_rating }}" != "None") {
             let rate_div_tag = document.getElementsByClassName('rate-product')[0];
             rate_div_tag.classList.remove('rate-product');
 
