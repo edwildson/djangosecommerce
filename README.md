@@ -7,10 +7,10 @@ Projeto de didático utilizado para o curso de sistemas distribuídos, feito em 
 - [x] Customização do Admin (fieldsets, modelos inline etc)
 - [x] Implementar recuperação de senha (Autenticação)
 - [x] Utilizar recursos de e-mail e considerar smtp de desenvolvimento, se necessário (Autenticação)
-- [ ] Aplicar recursos de Validação de Dados 
+- [x] Aplicar recursos de Validação de Dados 
 - [x] Utilização de banco de dados (Maria DB, Postgres, MySQL)
-- [ ] Humanização
-- [ ] Framework de Mensagens
+- [x] Humanização
+- [x] Framework de Mensagens
 - [x] Paginação
 - [x] Definir um projeto (site) com, pelo menos duas aplicações (módulos) / ver projetos vs. aplicações
 - [x] Sessões anônimas 
