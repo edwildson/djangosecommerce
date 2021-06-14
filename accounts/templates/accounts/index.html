@@ -1,30 +1,48 @@
 {% extends 'base.html' %} {% load static i18n %} {% block title %} Minha conta
 {% endblock title %} {% block container %}
-<ol class="breadcrumb">
-  <li><a href="{% url 'accounts:index' %}">{% trans 'Início' %}</a></li>
-  <li class="active">{% trans 'Minha Conta' %}</li>
-</ol>
-<div class="row">
-  <div class="col-md-4">
-    <div class="list-group">
-      <a href="{% url 'accounts:index' %}" class="list-group-item active"
-        >{% trans 'Minha Conta' %}</a
-      >
-      <a href="{% url 'accounts:update_user' %}" class="list-group-item"
-        >{% trans 'Alterar Dados' %}</a
-      >
-      <a href="{% url 'accounts:update_password' %}" class="list-group-item"
-        >{% trans 'Alterar senha' %}</a
-      >
-      <a href="{% url 'checkout:order_list' %}" class="list-group-item"
-        >{% trans 'Meus pedidos' %}</a
-      >
+    <ol class="breadcrumb">
+        <li><a href="{% url 'accounts:index' %}">{% trans 'Início' %}</a></li>
+        <li class="active">{% trans 'Minha Conta' %}</li>
+    </ol>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="list-group">
+                <a href="{% url 'accounts:index' %}" class="list-group-item"
+                >{% trans 'Minha Conta' %}</a
+                >
+                <a href="{% url 'accounts:update_user' %}" class="list-group-item"
+                >{% trans 'Alterar Dados' %}</a
+                >
+                <a href="{% url 'accounts:update_password' %}" class="list-group-item"
+                >{% trans 'Alterar senha' %}</a
+                >
+                <a href="{% url 'checkout:order_list' %}" class="list-group-item"
+                >{% trans 'Meus pedidos' %}</a
+                >
+            </div>
+        </div>
+        <div class="col-md-8">
+            {% block accounts_container %}
+                <h2>{% trans 'Bem vindo' %} {{ user }}</h2>
+            {% endblock accounts_container %}
+        </div>
     </div>
-  </div>
-  <div class="col-md-8">
-    {% block accounts_container %}
-    <h2>{% trans 'Bem vindo' %} {{ user }}</h2>
-    {% endblock accounts_container %}
-  </div>
-</div>
+    <script>
+        var array_path = window.location.pathname.split('/');
+        var last_path = array_path[array_path.length - 2];
+
+        switch (last_path) {
+            case "conta":
+                $('.list-group-item:eq(0)').addClass('active');
+                break;
+            case "alterar-dados":
+                $('.list-group-item:eq(1)').addClass('active');
+                break;
+            case "alterar-senha":
+                $('.list-group-item:eq(2)').addClass('active');
+                break;
+            case "meus-pedidos":
+                $('.list-group-item:eq(3)').addClass('active');
+        }
+    </script>
 {% endblock container %}
