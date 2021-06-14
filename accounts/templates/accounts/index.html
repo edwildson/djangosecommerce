@@ -28,21 +28,24 @@
         </div>
     </div>
     <script>
-        var array_path = window.location.pathname.split('/');
-        var last_path = array_path[array_path.length - 2];
+        (function () {
+            var path = window.location.pathname;
 
-        switch (last_path) {
-            case "conta":
-                $('.list-group-item:eq(0)').addClass('active');
-                break;
-            case "alterar-dados":
-                $('.list-group-item:eq(1)').addClass('active');
-                break;
-            case "alterar-senha":
-                $('.list-group-item:eq(2)').addClass('active');
-                break;
-            case "meus-pedidos":
+            if (path.indexOf("meus-pedidos") !== -1) {
                 $('.list-group-item:eq(3)').addClass('active');
-        }
+                return;
+            }
+            if (path.indexOf("alterar-senha") !== -1) {
+                $('.list-group-item:eq(2)').addClass('active');
+                return;
+            }
+            if (path.indexOf("alterar-dados") !== -1) {
+                $('.list-group-item:eq(1)').addClass('active');
+                return;
+            }
+            if (path.indexOf("conta") !== -1)
+                $('.list-group-item:eq(0)').addClass('active');
+
+        })();
     </script>
 {% endblock container %}
