@@ -2,7 +2,7 @@
 Projeto didático utilizado para o curso de sistemas distribuídos, feito em DJANGO.
 
 
-# Requisitos
+# Recursos
 - [x] Número mínimo de modelos (tabelas): de sete a dez [ pode haver mais ] 
 - [x] Customização do Admin (fieldsets, modelos inline etc)
 - [x] Implementar recuperação de senha (Autenticação)
